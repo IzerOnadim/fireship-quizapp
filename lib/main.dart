@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:quizapp/theme.dart';
 import 'routes.dart';
 import 'firebase_options.dart';
 
@@ -18,6 +19,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: appRoutes,
+      theme: appTheme,
     );
   }
 }
