@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-
-// Import the firebase_core plugin
 import 'package:firebase_core/firebase_core.dart';
+import 'routes.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -17,6 +16,8 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp();
+    return MaterialApp(
+      routes: appRoutes,
+    );
   }
 }
