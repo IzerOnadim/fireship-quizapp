@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:quizapp/services/auth.dart';
+import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -25,6 +28,20 @@ class LoginScreen extends StatelessWidget {
                 text: 'Continue as a Guest',
                 loginMethod: AuthService().anonLogin,
               ),
+            ),
+            FutureBuilder<Object>(
+              future: SignInWithApple.isAvailable(),
+              builder: (context, snapshot) {
+                if (snapshot.data == true) {
+                  return SignInWithAppleButton(
+                    onPressed: () {
+                      AuthService().signInWithApple();
+                    },
+                  );
+                } else {
+                  return Container();
+                }
+              },
             ),
             LoginButton(
               colour: Colors.blue,
